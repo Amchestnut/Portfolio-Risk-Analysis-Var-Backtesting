@@ -44,7 +44,7 @@ for a in alpha_levels:
         summarize_backtests(r_p, par_ewma["VaR"], a, f"Parametric-EWMA ({int(a * 100)}%)"),
         summarize_backtests(r_p, mc, a, f"MonteCarlo ({int(a * 100)}%)"),
     ])
-    results[a] = tbl  # <-- this prevents KeyError
+    results[a] = tbl  # <- this prevents KeyError
 
     var_dict = {
         "HS": hs["VaR"],
@@ -62,14 +62,14 @@ for a in alpha_levels:
         savepath=fig_dir / f"pnl_vs_var_alpha{int(a*100)}.png",
     )
 
-    # 2) Kupiec expected vs actual (uses results[a] you've already built)
+    # 2) Kupiec expected vs actual (uses results[a] that is already build)
     plot_kupiec_expected_vs_actual(
         backtest_table=results[a],
         alpha=a,
         savepath=fig_dir / f"kupiec_expected_vs_actual_alpha{int(a*100)}.png",
     )
 
-# 3) Simple Monte Carlo histogram (last day), pick one alpha (e.g., 0.99)
+# 3) Simple Monte Carlo histogram (last day), pick one alpha (example: 0.99)
 plot_mc_loss_histogram(
     ret_df=rets,
     weights=weights,
