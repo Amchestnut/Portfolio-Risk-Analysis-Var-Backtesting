@@ -1,0 +1,7 @@
+python-dateutil
+numpy
+pandas
+scipy
+matplotlib
+yfinance
+arch  # optional; will need later for t student
